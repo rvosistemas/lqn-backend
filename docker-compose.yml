@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: starwars_db
+      POSTGRES_USER: starwars_user
+      POSTGRES_PASSWORD: starwars_pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - lqn_net
+
+  web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+      - DB_NAME=starwars_db
+      - DB_USER=starwars_user
+      - DB_PASSWORD=starwars_pass
+      - DB_HOST=db
+    networks:
+      - lqn_net
+
+volumes:
+  postgres_data:
+
+networks:
+  lqn_net:

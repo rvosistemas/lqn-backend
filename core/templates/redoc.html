@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Star Wars API Docs</title>
+    <meta charset="UTF-8" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <redoc spec-url="{{ spec_url }}"></redoc>
+    <script src="{% static 'redoc/redoc.standalone.js' %}"></script>
+</body>
+
+</html>

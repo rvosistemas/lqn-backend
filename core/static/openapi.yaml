@@ -1,0 +1,11 @@
+openapi: 3.1.0
+info:
+  title: Star Wars API
+  version: 1.0.0
+paths:
+  /people/:
+    get:
+      summary: List people
+      responses:
+        "200":
+          description: OK

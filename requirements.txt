@@ -1,0 +1,11 @@
+Django>=4.2
+graphene-django
+django-filter
+psycopg2-binary
+strawberry-graphql
+strawberry-graphql-django
+pytest
+pytest-django
+pytest-env
+pytest-cov
+drf-spectacular
